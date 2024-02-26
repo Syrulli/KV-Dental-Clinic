@@ -8,7 +8,7 @@ if (isset($_SESSION['auth'])) {
 }
 include('includes/header.php');
 ?>
-<section class="mt-5 mb-5">
+<section style="background-image: url('img/dummy_img_3.png') !important; background-repeat: no-repeat !important; background-attachment: fixed; background-position: center; background-size: cover;">
   <div class="container mt-5 mb-5" style="width: 65%; margin-top: 15%;">
     <div class="row">
       <div class="col-12">
