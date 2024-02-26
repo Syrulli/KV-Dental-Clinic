@@ -1,4 +1,4 @@
-<!-- session_start(); -->
+<?php session_start(); ?>
 <!doctype html>
 <html lang="en">
     <head>
@@ -16,6 +16,7 @@
     </head>
     <body>
         <?php include('navbar.php'); ?>
+
     
 
 

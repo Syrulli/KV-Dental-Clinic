@@ -9,7 +9,7 @@
         <div class="row min-vh-100 align-items-center">
             <div class="col-lg-12 col-sm-12 text-left">
                 <h1 id="text" style="color: white; font-size: 60px; font-size: clamp(2rem, 5vw, 5rem);"></h1>
-                <p style="color:white;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos nesciunt, itaque amet ab repellat <br> vitae ducimus distinctio porro maiores laudantium mollitia ecto optio?</p>
+                <p style="color:white;">GENERAL DENTISTRY, ORAL & MAXILLOFACIAL SURGERY, <br> OCCUPATIONAL SAFETY & HEALTH DENTIST, ORTHODONTICS & COSMETIC DENTISTRY.</p>
                 <a  type="button" class="btn btn-primary" href="appointment.php"><small>Book an appointment <i class="fa-regular fa-calendar-check"></i></small></a>
             </div>
         </div>
