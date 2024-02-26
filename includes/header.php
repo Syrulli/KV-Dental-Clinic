@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="admin/lib/css/flickity.css">
         <link rel="stylesheet" href="admin/lib/css/alertify.min.css">
         <link rel="stylesheet" href="admin/lib/css/bootstrap.min.css">
+        <link rel="stylesheet" href="admin/lib/css/arbel.css">
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <link rel="icon" href="img/logo.png" type="image/x-icon" sizes="64x64">
         <title><?php echo $title; ?></title>

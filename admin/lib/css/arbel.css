@@ -1,0 +1,36 @@
+/* @import url("https://fonts.googleapis.com/css?family=Acme|Lobster|Patua+One|Rubik|Sniglet"); */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap');
+  
+@media(max-width: 700px) {
+  .dentist-col img {
+    margin-left: 0px;
+    margin-right: 15px;
+
+  }
+}
+.dentist-col {
+  padding: 30px;
+  flex-basis: 31%;
+  border-radius: 10px;
+  margin-bottom: 5%;
+  text-align: justify;
+
+}
+
+.dentist-col img {
+  width: 100%;
+  height: 75%;
+  border-radius: 0px;
+}
+
+.dentist-col p {
+  padding: 0;
+  font-size: small;
+}
+
+.dentist-col h3 {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  text-align: left;
+
+}
