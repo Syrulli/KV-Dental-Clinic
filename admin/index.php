@@ -1,9 +1,7 @@
 <?php
-
-    $title = "Dashboard - Tayouth ";
+    $title = "Dashboard - KV Dental ";
     include('../middleware/admin_middleware.php');
     include('inc/header.php');
-
 ?>
 
 <div class="container-fluid px-4">

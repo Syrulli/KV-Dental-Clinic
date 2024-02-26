@@ -61,10 +61,9 @@
                 'name' => $username,
                 'email' => $useremail
             ];
-
+            
             // ACCESS LEVEL 
             $_SESSION['role_as'] = $role_as;
-
             if($role_as == 1){
                 redirect("../admin/index.php", "Welcome To Dashboard");
                 

@@ -1,6 +1,4 @@
-`                    </main>
-                
-                <footer class="py-4 bg-light mt-auto postion">
+            <footer class="py-4 bg-light mt-auto postion">
                     <div class="container-fluid px-4">
                         <div class="small text-center">
                             <div class="text-muted">&copy;KV Dental Clinic | All rights reserved.</div>
@@ -20,7 +18,7 @@
             <?php 
                 if(isset($_SESSION['message'])){
                     ?>
-                        alertify.set('notifier','position', 'top-right');
+                        alertify.set('notifier','position', 'bottom-right');
                         alertify.success('<?= $_SESSION['message']; ?>');
                     <?php
                     unset($_SESSION['message']);

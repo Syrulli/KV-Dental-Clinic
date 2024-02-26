@@ -5,10 +5,10 @@
     include('all_modal.php');    
 ?>
 <section style="background-image: url('img/dummy_img_3.png') !important; background-repeat: no-repeat !important; background-attachment: fixed; background-position: center; background-size: cover;">
-    <div class="container">
+    <div class="container home-container1-content">
         <div class="row min-vh-100 align-items-center">
             <div class="col-lg-12 col-sm-12 text-left">
-                <h1 id="text" style="color: white; font-size: 60px;"></h1>
+                <h1 id="text" style="color: white; font-size: 60px; font-size: clamp(2rem, 5vw, 5rem);"></h1>
                 <p style="color:white;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eos nesciunt, itaque amet ab repellat <br> vitae ducimus distinctio porro maiores laudantium mollitia ecto optio?</p>
                 <a  type="button" class="btn btn-primary" href="appointment.php"><small>Book an appointment <i class="fa-regular fa-calendar-check"></i></small></a>
             </div>
@@ -56,7 +56,7 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus commodi, earum dolorem aspernatur doloribus facere!</p>
             </div>
         </div>
-        <div class="row" style=" margin-top: 5%; display: flex; justify-content: space-between;">
+        <div class="row" style=" margin-bottom: 5%; display: flex; justify-content: space-between;">
             <div class="howItWorks-col" data-aos="fade-right">
                 <img src="img/icons/dummy_icon_4.png" style="width: 60px;">
                 <h5><small><b>Veneers/Laminates</b></small></h5>
@@ -77,7 +77,6 @@
 </section>
 
 <section style="background-color: var(--section);">
-
     <div class="container">
         <div class="row min-vh-100 align-items-center">
             <div class="col-lg-6 col-sm-12">
@@ -92,7 +91,6 @@
                 <p><small><i class="fa-solid fa-check"></i> Top dental implant service.</small></p>
                 <p><small><i class="fa-solid fa-check"></i> Committed to provide the best smile you’ve ever wanted.</small></p>
                 <a type="button" href="#" class="btn btn-outline-secondary btn-sm"><small>About Us</small></a>
-
             </div>
         </div>
     </div>
@@ -105,31 +103,31 @@
     <div class="container mb-lg-5 pt-lg-3">
         <div class="main-carousel" data-flickity='{ "freeScroll": true }'>
             <?php
-            $blog = getAllBlogActive("tbl_blog");
-            if (mysqli_num_rows($blog) > 0) {
-                foreach ($blog as $data) {
-            ?>
-                    <div class="carousel-cell">
-                        <div class="card" style="width: 90%; height: 30em;">
-                            <img class="card-img-top" src="uploaded/<?= $data['image']; ?>" alt="News & Blog Image" style="width: 100%; height: 200px;">
-                            <div class="card-header" style="border: none;">
-                                <h5 class="card-title"><b><?= $data['title']; ?></b></h5>
-                            </div>
-                            <div class="card-body" style="border: none;">
-                                <small><span><i class="fa-solid fa-blog"></i></span> Blog post</small>
+                $blog = getAllBlogActive("tbl_blog");
+                if (mysqli_num_rows($blog) > 0) {
+                    foreach ($blog as $data) {
+                    ?>
+                        <div class="carousel-cell">
+                            <div class="card" style="width: 90%; height: 30em;">
+                                <img class="card-img-top" src="uploaded/<?= $data['image']; ?>" alt="News & Blog Image" style="width: 100%; height: 200px;">
+                                <div class="card-header" style="border: none;">
+                                    <h5 class="card-title"><b><?= $data['title']; ?></b></h5>
+                                </div>
+                                <div class="card-body" style="border: none;">
+                                    <small><span><i class="fa-solid fa-blog"></i></span> Blog post</small>
 
-                                <p class="card-text"><small><?= $data['description']; ?></small></p>
-                            </div>
-                            <div class="card-footer" style="border: none;">
-                                <a href="<?= $data['links']; ?>"><small>View more <i class="fa-solid fa-arrow-right"></i></small></a>
+                                    <p class="card-text"><small><?= $data['description']; ?></small></p>
+                                </div>
+                                <div class="card-footer" style="border: none;">
+                                    <a href="<?= $data['links']; ?>"><small>View more <i class="fa-solid fa-arrow-right"></i></small></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-            <?php
+                    <?php
+                    }
+                }else{
+                    echo "No data available";
                 }
-            } else {
-                echo "No data available";
-            }
             ?>
         </div>
     </div>
@@ -142,7 +140,6 @@
                 <h1 style="color:var(--first-color);" class="pb-lg-0 mb-lg-0">Feedback</h1>
                 <p>Feel free to send an email.</p>
             </div>
-
             <div class="col-lg-6" style="filter: grayscale(100%) invert(10%);">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15449.264382705356!2d121.04101302924295!3d14.52390322431441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397c9c7347ef727%3A0x4500c5215593e3de!2sKV%20Dental%20Clinic!5e0!3m2!1sen!2sph!4v1708760697895!5m2!1sen!2sph" width="600" height="450"  style="border-radius: 5px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
@@ -168,7 +165,6 @@
     var i = 0,
         text;
     text = "Smile Confidentaly."
-
     function typing() {
         if (i < text.length) {
             document.getElementById("text").innerHTML += text.charAt(i);

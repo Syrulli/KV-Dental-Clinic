@@ -10,16 +10,13 @@
         <link href="lib/css/my_style.css" rel="stylesheet"/>
         <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
         <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/bootstrap.min.css"/>
-
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
     </head>
 
     <body class="sb-nav-fixed">
         <?php include('inc/admin_nav.php');?>
-
         <div id="layoutSidenav">
             <?php include('inc/admin_sidebar.php');?>
             <div id="layoutSidenav_content">
-                <main>
 
 

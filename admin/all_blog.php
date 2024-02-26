@@ -1,5 +1,5 @@
 <?php
-    $title = "All News & Blogs - Tayouth";
+    $title = "All News & Blogs - KV Dental Clinic";
     include('../middleware/admin_middleware.php');
     include('inc/header.php');
     include('modal.php');

@@ -1,5 +1,5 @@
 <?php
-    $title ="Edit Item - Tayouth";
+    $title ="Edit User Information";
     include('../middleware/admin_middleware.php');
     include('inc/header.php');
 ?>
@@ -18,7 +18,6 @@
                     $tbl_users = getByID("tbl_users", $id);
 
                     if(mysqli_num_rows($tbl_users) > 0){
-
                         $data = mysqli_fetch_array($tbl_users);
                         ?>
                             <div class="card">
@@ -45,12 +44,10 @@
                                                 <label class="form-label pt-1 mt-2"><b><small>Phone</small></b></label>
                                                 <input type="text" name="phone" value="<?= $data['phone'] ?>" class="form-control" placeholder="Enter Phone Number">
                                             </div>
-
                                             <div class="mb-3 col-lg-6">
                                                 <label class="form-label"><b><small>Password</small></b></label>
                                                 <input type="text" name="password" value="<?= $data['password'] ?>" class="form-control" placeholder="Enter Passowrd">
                                             </div>
-
                                             <div class="col-lg-12 d-flex justify-content-end">
                                                 <button type="submit" class="btn btn-outline-primary" name="update_user_btn" title="Update News & Blog"><i class="fa-solid fa-check"></i></button>
                                             </div>
@@ -69,6 +66,4 @@
         </div>
     </div>
 </div>
-<?php
-    include('inc/footer.php');
-?>
+<?php include('inc/footer.php'); ?>

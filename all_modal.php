@@ -37,9 +37,7 @@
                                         </div>
                                     </div>
                                 </div>
-                               
                             </div>
-
                             <div class="d-flex justify-content-center">
                                 <button type="submit" value="<?= $users['id']; ?>" class="btn btn-outline-primary btn-sm" name="update_acc_by_user_btn">Update</button>
                             </div>
@@ -53,4 +51,3 @@
         </div>
     </div>
 </div>
-

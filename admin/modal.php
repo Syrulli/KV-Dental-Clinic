@@ -14,14 +14,12 @@
                                 <input type="text" name="title" class="form-control" placeholder="Enter Item Name">
                             </div>
                         </div>
-
                         <div class="col-lg-6">
                             <div class="mb-3">
                                 <label class="form-label">Links</label>
                                 <input type="text" name="links" class="form-control" placeholder="Enter links">
                             </div>
                         </div>
-
                         <div class="col-lg-6">
                             <div class="mb-3">
                                 <label class="form-label">Description</label>
@@ -29,7 +27,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="input-group col-lg-12 mb-2">
                             <input type="file" name="image" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">

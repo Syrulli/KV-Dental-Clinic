@@ -10,12 +10,10 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     Overview
                 </a>
-
                 <a class="nav-link <?= $page == "all_users.php"? 'active bg-primary':''; ?>" href="all_users.php">
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-users"></i></i></div>
                     Users Info
                 </a>
-
                 <a class="nav-link <?= $page == "all_blog.php"? 'active bg-primary':''; ?>" href="all_blog.php">
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-blog"></i></i></div>
                     News & Blogs

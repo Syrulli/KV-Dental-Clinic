@@ -1,5 +1,5 @@
 <?php
-    $title = "All Users - Tayouth";
+    $title = "All Users - KV Dental Clinic";
     include('../middleware/admin_middleware.php');
     include('inc/header.php');
 ?>

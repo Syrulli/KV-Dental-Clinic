@@ -1,5 +1,5 @@
 <?php
-    $title = "Edit News & Blog - Tayouth";
+    $title = "Edit News & Blog";
     include('../middleware/admin_middleware.php');
     include('inc/header.php');
 ?>
@@ -17,7 +17,6 @@
                     $tbl_blog = getAllBlogId("tbl_blog", $id);
 
                     if (mysqli_num_rows($tbl_blog) > 0) {
-
                         $data = mysqli_fetch_array($tbl_blog);
                         ?>
                             <div class="card">

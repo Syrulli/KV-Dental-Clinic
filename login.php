@@ -17,13 +17,11 @@
             <h4 class="text-white" style="letter-spacing: 5px; font-size: 20pt;">Welcome back</h4>
           </div>
           <div class="card-body">
-            <!-- WAG GAGALAWIN FUNCTION NI LLOYD TO  -->
             <form action="functions/auth.php" method="POST">
               <div class="mb-3">
                 <label class="form-label"><small> <i class="fa-solid fa-at"></i> Email address</label></small>
                 <input type="email" name="email" class="form-control">
               </div>
-              <!-- COPY LINE 27-35 -->
               <div class="mb-3">  
                 <label class="form-label"><small><i class="fa-solid fa-key"></i> Password</label></small>
                 <div class="input-group">
@@ -38,7 +36,6 @@
                 <a class="btn btn-outline-secondary btn-sm text-center" href="register.php">Create new account</a>
               </div>
             </form>
-            <!-- WAG GAGALAWIN FUNCTION NI LLOYD TO  -->
           </div>
         </div>
       </div>
