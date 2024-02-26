@@ -1,12 +1,11 @@
 <?php
-  // session_start();
+  session_start();
   $title = "Create Account | RV Dental";
   if(isset($_SESSION['auth'])){
     $_SESSION['message'] = "You already Logged in";
     header('Location: index.php');
     exit();
   }
-  
   include('includes/header.php');
 ?>
 <div class="container mt-5" style="width: 30%;">
@@ -23,7 +22,6 @@
           unset($_SESSION['message']);
         }
       ?>
-
       <div class="card" style="background-color: var(--section);">
         <div class="card-header">
           <h4>Create an account</h4>
@@ -50,6 +48,7 @@
               <label class="form-label">Password</label>
               <input type="password" name="password" class="form-control">
             </div>
+            <!-- PASTE LINE 27-35 -->
             <div class="mb-3">
               <label class="form-label">Confirm Password</label>
               <input type="password" name="cpassword" class="form-control">

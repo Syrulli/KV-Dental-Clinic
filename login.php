@@ -1,5 +1,5 @@
 <?php
-  // session_start();
+  session_start();
   $title = "Sign in | KV Dental Clinic";
   if (isset($_SESSION['auth'])) {
     $_SESSION['message'] = "You already Logged in";
@@ -23,7 +23,8 @@
                 <label class="form-label"><small> <i class="fa-solid fa-at"></i> Email address</label></small>
                 <input type="email" name="email" class="form-control">
               </div>
-              <div class="mb-3">
+              <!-- COPY LINE 27-35 -->
+              <div class="mb-3">  
                 <label class="form-label"><small><i class="fa-solid fa-key"></i> Password</label></small>
                 <div class="input-group">
                   <input type="password" name="password" id="password" class="form-control">
