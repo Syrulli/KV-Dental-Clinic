@@ -1,9 +1,9 @@
 <?php
-    $title = "Book an appointment";
-    include('./includes/header.php');
-    include('functions/userfunction.php');
-    include('all_modal.php');    
-    include('authenticate.php');
+$title = "Book an appointment";
+include('./includes/header.php');
+include('functions/userfunction.php');
+include('all_modal.php');
+include('authenticate.php');
 ?>
 <section style="background-image: url('img/dummy_img_1.png')
      !important; background-repeat: no-repeat; background-position: left !important; background-size: cover; background-attachment: fixed; ">
@@ -40,20 +40,20 @@
                             </div>
                             <select for="service" id="service" name="service" class="form-select mb-3" aria-label="Large select example">
                                 <option selected>Dental services offered:</option>
-                                <option value="cleaning">Cleaning and polishing</option>
-                                <option value="deep_scaling">Deep scaling (gum treatment)</option>
-                                <option value="tooth_filling">Tooth filling (pasta)</option>
-                                <option value="fluoride_treatment">Fluoride treatment</option>
-                                <option value="pit_fissure_sealant">Pit and fissure sealant</option>
-                                <option value="braces">Orthodontic braces and clear aligners (with monthly cleaning and kit) </option>
-                                <option value="oral_surgery">Oral Surgery (wisdom teeth removal, etc..)</option>
-                                <option value="cosmetic_dentistry">Cosmetic Dentistry</option>
-                                <option value="endodontics">Endodontics</option>
-                                <option value="pediatric_dentistry">Pediatric Dentistry</option>
-                                <option value="dentures">Dentures (Removable and Fixed)</option>
-                                <option value="crown_bridges">Crowns and bridges</option>
-                                <option value="vaneers_laminates">Veneers/Laminates</option>
-                                <option value="dental_implants">Dental Implants</option>
+                                <option value="Cleaning & polishing">Cleaning and polishing</option>
+                                <option value="Deep scaling">Deep scaling (gum treatment)</option>
+                                <option value="Tooth filling">Tooth filling (pasta)</option>
+                                <option value="Fluoride treatment">Fluoride treatment</option>
+                                <option value="Pit & fissure sealant">Pit and fissure sealant</option>
+                                <option value="Orthodontic braces">Orthodontic braces and clear aligners (with monthly cleaning and kit) </option>
+                                <option value="Oral Surgery">Oral Surgery (wisdom teeth removal, etc..)</option>
+                                <option value="Cosmetic Dentistry">Cosmetic Dentistry</option>
+                                <option value="Endodontics">Endodontics</option>
+                                <option value="Pediatric Dentistry">Pediatric Dentistry</option>
+                                <option value="Dentures">Dentures (Removable and Fixed)</option>
+                                <option value="Crowns & bridges">Crowns and bridges</option>
+                                <option value="Veneers/Laminates">Veneers/Laminates</option>
+                                <option value="Dental Implants">Dental Implants</option>
                             </select>
                             <div class="mb-3">
                                 <label for="price" class="form-label"><small><i class="fa-solid fa-peso-sign"></i> Price:</label></small>
@@ -68,10 +68,10 @@
             </div>
         </div>
     </div>
+</section>
+
+<section>
     <div class="container pt-lg-3" style="height: 65px !important;">
-        <!-- <ul class="breadcrumb d-flex align-items-center pt-lg-4 text-black">
-            <li class="breadcrumb-item"><a href="#">Appointment History</a></li>
-        </ul> -->
         <p>Appointment History</p>
         <hr>
     </div>
@@ -81,41 +81,50 @@
                 <table class="table table-striped text-center shadow p-3 mb-5 bg-body-tertiary rounded">
                     <thead>
                         <tr>
-                            <th>ID</th>
                             <th>Appointment Date</th>
                             <th>Service</th>
                             <th>Price</th>
                             <th>Status</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                            $appointment = getAppointmentById();
-
-                            if (mysqli_fetch_array($appointment) > 0) {
-                                foreach ($appointment as $data) {
-                                    ?>
-                                        <tr>
-                                            <td> <?= $data['id']; ?> </td>
-                                            <td> <?= $data['appointment_date']; ?> </td>
-                                            <td> <?= $data['service']; ?> </td>
-                                            <td> <?= $data['price']; ?> </td>
-                                            <td> <?= $data['status']; ?> </td>
-                                    <?php
-                                }
-                            }else{
-                                ?>
-                                        <td colspan="5">No data</td>
-                                    </tr>
+                        $appointment = getAppointmentById();
+                        if (mysqli_fetch_array($appointment) > 0) {
+                            foreach ($appointment as $data) {
+                        ?>
+                                <tr>
+                                    <td> <?= $data['appointment_date']; ?> </td>
+                                    <td> <?= $data['service']; ?> </td>
+                                    <td> <?= $data['price']; ?> </td>
+                                    <td> <?= $data['status']; ?> </td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-3" title="Edit Appointment">
+                                                <button type="button" class="btn btn-primary btn-sm edit-appointment-btn" data-bs-toggle="modal" data-bs-target="#edit_appointment_by_user_btn" data-appointment-id="<?= $data['id']; ?>"><i class="fa-solid fa-pen-to-square"></i></button>
+                                            </div>
+                                            <div class="col-3" title="Delete User">
+                                                <button type="button" value="<?= $data['id']; ?>" class="btn btn-outline-danger delete_user_btn btn-sm"><i class="fa-solid fa-trash"></i></button>
+                                            </div>
+                                        </div>
+                                    </td>
                                 <?php
                             }
-                        ?>
+                        } else {
+                                ?>
+                                <td colspan="5">No data</td>
+                                </tr>
+                            <?php
+                        }
+                            ?>
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 </section>
+
 <script>
     var i = 0,
         text;

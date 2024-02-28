@@ -1354,11 +1354,7 @@
   p.Slide = o;
   return p;
 });
-/*!
- * Unipointer v2.4.0
- * base class for doing one thing with pointer event
- * MIT license
- */
+
 (function (e, i) {
   if (typeof define == 'function' && define.amd) {
     define('unipointer/unipointer', ['ev-emitter/ev-emitter'], function (t) {

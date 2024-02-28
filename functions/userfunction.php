@@ -19,6 +19,13 @@
             $q = "SELECT * FROM tbl_appointments WHERE user_id = '$userId'";
             return mysqli_query($con, $q);
         }
+
+        function editAppointmentByUser(){
+            global $con;
+            $userId = $_SESSION['auth_user']['user_id'];
+            $q = "SELECT * FROM tbl_appointments WHERE user_id = '$userId'";
+            return mysqli_query($con, $q);
+        }
         
     // END USER SIDE FUNC 
     

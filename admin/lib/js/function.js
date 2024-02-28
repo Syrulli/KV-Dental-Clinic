@@ -133,16 +133,15 @@ $(document).ready(function () {
     }
   }
 
-  $('#service').change(function () {
+  $('#service, #service_modal').change(function () {
     var service = $(this).val();
-    $('#price').val(getPriceForService(service));
+    $('#price, #price_modal').val(getPriceForService(service));
   });
 
   $('#appointmentForm').submit(function (event) {
     event.preventDefault();
     var appointmentDate = new Date($('#appointment_date').val());
 
-    // Check if the appointment is valid
     if (!isAppointmentValid(appointmentDate)) {
       alertify.error(
         'Please select a valid appointment date and time within the clinic hours.'
@@ -173,33 +172,33 @@ $(document).ready(function () {
 });
 function getPriceForService(service) {
   switch (service) {
-    case 'cleaning':
+    case 'Cleaning & polishing':
       return '4000.00';
-    case 'deep_scaling':
+    case 'Deep scaling':
       return '5000.00';
-    case 'tooth_filling':
+    case 'Tooth filling':
       return '5100.00';
-    case 'fluoride_treatment':
+    case 'Fluoride treatment':
       return '8060.00';
-    case 'pit_fissure_sealant':
+    case 'Pit & fissure sealant':
       return '4925.00';
-    case 'braces':
+    case 'Orthodontic braces':
       return '6000.00';
-    case 'oral_surgery':
+    case 'Oral Surgery':
       return '50000.00';
-    case 'cosmetic_dentistry':
+    case 'Cosmetic Dentistry':
       return '4805.00';
-    case 'endodontics':
+    case 'Endodontics':
       return '8620.00';
-    case 'pediatric_dentistry':
+    case 'Pediatric Dentistry':
       return '5660.00';
-    case 'dentures':
+    case 'Dentures':
       return '6081.00';
-    case 'crown_bridges':
+    case 'Crowns & bridges':
       return '6990.00';
-    case 'vaneers_laminates':
+    case 'Veneers/Laminates':
       return '80.00';
-    case 'dental_implants':
+    case 'Dental Implants':
       return '5200.00';
     default:
       return '';

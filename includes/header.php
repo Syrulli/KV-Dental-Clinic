@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<!-- <?php session_start(); ?> -->
 <!doctype html>
 <html lang="en">
     <head>
@@ -15,9 +15,4 @@
         <title><?php echo $title; ?></title>
     </head>
     <body>
-        <?php include('navbar.php'); ?>
-
-    
-
-
-            
+        <?php include('navbar.php'); ?> 
