@@ -8,11 +8,10 @@ if (isset($_SESSION['auth'])) {
 }
 include('includes/header.php');
 ?>
-<section style="background-image: url('img/dummy_img_3.png') !important; background-repeat: no-repeat !important; background-attachment: fixed; background-position: center; background-size: cover;">
-  <div class="container mt-5 mb-5" style="width: 65%; margin-top: 15%;">
-    <div class="row">
-      <div class="col-12">
-
+<section style="background-image: url('img/dummy_img_1.png') !important; background-repeat: no-repeat !important; background-attachment: fixed; background-position: center; background-size: cover;">
+  <div class="container mt-5" style="width: 75%;">
+    <div class="row min-vh-100 align-items-center mx-auto">
+      <div class="col-lg-12 col-sm-12">
         <?php
         if (isset($_SESSION['message'])) { ?>
           <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -24,12 +23,12 @@ include('includes/header.php');
         }
         ?>
         <div class="card" style="background-color: var(--section);">
-          <div class="card-header">
-            <h4>Create an account</h4>
+        <div class="card-header text-center" style="background-color: var(--first-color);">
+            <h4 class="text-white" style="letter-spacing: 5px; font-size: 20pt;">Create an Account</h4>
           </div>
-          <div class="card-body">
+          <div class="card text-black">
             <form action="functions/auth.php" method="POST">
-              <div class="row">
+              <div class="row px-2">
                 <div class="container col-6">
                   <div class="mb-3">
                     <label class="form-label">Full Name</label>
