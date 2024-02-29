@@ -38,6 +38,11 @@ include('authenticate.php');
                                 <label for="appointment_date" class="form-label"><small><i class="fa-regular fa-clock"></i> Date & Time</label></small>
                                 <input type="datetime-local" id="appointment_date" name="appointment_date" required class="form-control">
                             </div>
+                            <select class="form-select mb-3" id="dentist" name="dentist" aria-label="Default select example">
+                                <option selected>Choose Dentist</option>
+                                <option value="Dr. Kv">Dr. Kv</option>
+                                <option value="Dr. lloyd">Dr. Lloyd</option>
+                            </select>
                             <select for="service" id="service" name="service" class="form-select mb-3" aria-label="Large select example">
                                 <option selected>Dental services offered:</option>
                                 <option value="Cleaning & polishing">Cleaning and polishing</option>
@@ -82,6 +87,7 @@ include('authenticate.php');
                     <thead>
                         <tr>
                             <th>Appointment Date</th>
+                            <th>Dentist</th>
                             <th>Service</th>
                             <th>Price</th>
                             <th>Status</th>
@@ -96,6 +102,7 @@ include('authenticate.php');
                         ?>
                                 <tr>
                                     <td> <?= $data['appointment_date']; ?> </td>
+                                    <td> <?= $data['dentist']; ?> </td>
                                     <td> <?= $data['service']; ?> </td>
                                     <td> <?= $data['price']; ?> </td>
                                     <td> <?= $data['status']; ?> </td>

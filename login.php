@@ -9,7 +9,7 @@
   include('includes/header.php');
 ?>
 <section style="background-image: url('img/dummy_img_1.png') !important; background-repeat: no-repeat !important; background-attachment: fixed; background-position: center; background-size: cover;">
-  <div class="container mt-5" style="width: 65%;">
+  <div class="container mt-5" style="width: 35%;">
     <div class="row min-vh-100 align-items-center">
       <div class="col-lg-12 col-sm-12">
         <div class="card text-black">

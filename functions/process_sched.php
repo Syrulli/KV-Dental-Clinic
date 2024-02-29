@@ -6,6 +6,7 @@
       if (isset($_SESSION['auth_user']['user_id'])) {
           $user_id = $_SESSION['auth_user']['user_id'];
           $appointment_date = $_POST['appointment_date'];
+          $dentist = $_POST['dentist'];
           $service = $_POST['service'];
           $price = getPriceForService($service);
 
@@ -19,8 +20,8 @@
               exit;
           }
 
-          $appointment = $con->prepare("INSERT INTO tbl_appointments (user_id, appointment_date, service, price) VALUES (?, ?, ?, ?)");
-          $appointment->bind_param("issd", $user_id, $appointment_date, $service, $price);
+          $appointment = $con->prepare("INSERT INTO tbl_appointments (user_id, appointment_date, dentist, service, price) VALUES (?, ?, ?, ?, ?)");
+          $appointment->bind_param("isssd", $user_id, $appointment_date, $dentist, $service, $price);
 
           if ($appointment->execute()) {
               echo json_encode(array("success" => true, "message" => "Appointment scheduled successfully!"));
