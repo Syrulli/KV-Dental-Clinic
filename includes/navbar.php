@@ -27,7 +27,7 @@
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item text-black" href="appointment.php"><i class="fa-solid fa-clock-rotate-left fa-fade"></i><small> Appointment History</small></a></li>
-              <li><a class="dropdown-item text-black" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-gear fa-spin"></i> Settings</a></li>
+              <li><a class="dropdown-item text-black" data-bs-toggle="modal" data-bs-target="#edit_by_user_btn"><i class="fa-solid fa-gear fa-spin"></i> Settings</a></li>
               <li><a class="dropdown-item text-black" href="logout.php"><i class="fa-solid fa-right-from-bracket fa-beat-fade"></i> Logout</a></li>
             </ul>
           </li>
