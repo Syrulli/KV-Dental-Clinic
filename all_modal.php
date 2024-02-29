@@ -75,8 +75,7 @@
                                     <label class="form-label"><small><i class="fa-regular fa-clock"></i> Date & Time</label></small>
                                     <input required type="datetime-local" name="appointment_date" class="form-control" value="<?= $appointment['appointment_date'] ?>">
                                 </div>
-                                <select class="form-select mb-3" name="dentist" id="dentist" aria-label="Default select example">
-                                    <option selected><?= $appointment['dentist'] ?></option>
+                                <select class="form-select mb-3" name="dentist" id="dentist" aria-label="<?= $appointment['dentist'] ?>">
                                     <option value="Dr. Lloyd">Dr. Lloyd</option>
                                     <option value="Dr. Kv">Dr. Kv</option>
                                 </select>
