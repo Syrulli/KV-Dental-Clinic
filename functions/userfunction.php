@@ -26,7 +26,6 @@
             $q = "SELECT * FROM tbl_appointments WHERE user_id = '$userId'";
             return mysqli_query($con, $q);
         }
-        
     // END USER SIDE FUNC 
     
     // connected sa auth

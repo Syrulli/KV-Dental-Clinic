@@ -80,7 +80,7 @@ include('authenticate.php');
         <p>Appointment History</p>
         <hr>
     </div>
-    <div class="container mt-lg-3 mb-5 my-5">
+    <div class="container mt-lg-3 mb-5 my-5" id="appointment_history_table">
         <div class="row">
             <div class="col-lg-12">
                 <table class="table table-striped text-center shadow p-3 mb-5 bg-body-tertiary rounded">
@@ -112,7 +112,7 @@ include('authenticate.php');
                                                 <button type="button" class="btn btn-primary btn-sm edit-appointment-btn" data-bs-toggle="modal" data-bs-target="#edit_appointment_by_user_btn" data-appointment-id="<?= $data['id']; ?>"><i class="fa-solid fa-pen-to-square"></i></button>
                                             </div>
                                             <div class="col-3" title="Delete User">
-                                                <button type="button" value="<?= $data['id']; ?>" class="btn btn-outline-danger delete_user_btn btn-sm"><i class="fa-solid fa-trash"></i></button>
+                                                <button type="button" value="<?= $data['id']; ?>" class="btn btn-outline-danger delete_appointment_btn btn-sm"><i class="fa-solid fa-trash"></i></button>
                                             </div>
                                         </div>
                                     </td>
@@ -120,7 +120,8 @@ include('authenticate.php');
                             }
                         } else {
                                 ?>
-                                <td colspan="5">No data</td>
+                                    <td colspan="10">No data</td>
+                                    
                                 </tr>
                             <?php
                         }
@@ -131,6 +132,7 @@ include('authenticate.php');
         </div>
     </div>
 </section>
+
 
 <script>
     var i = 0,

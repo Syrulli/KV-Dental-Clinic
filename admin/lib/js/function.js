@@ -63,6 +63,41 @@ $(document).on('click', '.delete_blog_btn', function (e) {
   });
 });
 
+/*==================== ALERT FOR DELETE USER APPOINTMENT ====================*/
+$(document).on('click', '.delete_appointment_btn', function () {
+  var appointmentId = $(this).val();
+  swal({
+    title: 'Are you sure?',
+    text: 'Once deleted, you will not be able to recover',
+    icon: 'warning',
+    buttons: true,
+    dangerMode: true,
+  }).then((willDelete) => {
+    if (willDelete) {
+      $.ajax({
+        type: 'POST',
+        url: 'admin/code.php',
+        data: {
+          delete_appointment_btn: true,
+          appointment_history_table: appointmentId,
+        },
+        success: function (response) {
+          if (response == 200) {
+            swal('Success!', 'Appointment Deleted Successfully!', 'success');
+            $('#appointment_history_table').load(
+              location.href + ' #appointment_history_table'
+            );
+          } else if (response == 404) {
+            swal('Error!', 'Appointment not found', 'error');
+          } else {
+            swal('Error!', 'Something went wrong', 'error');
+          }
+        },
+      });
+    }
+  });
+});
+
 /*==================== FUNC FOR FEEDBACK PROCESS ====================*/
 $(document).ready(function () {
   $('#feedback_form').submit(function (e) {
@@ -76,14 +111,14 @@ $(document).ready(function () {
       type: 'POST',
       url: 'functions/process_feedback.php',
       data: $(this).serialize(),
-      success: function (response) {
+      success: function () {
         $('#feedback_form')[0].reset();
         alertify.success('Feedback submitted successfully!');
         setTimeout(function () {
           location.reload();
         }, 100000);
       },
-      error: function (xhr, status, error) {
+      error: function () {
         alertify.error('Error submitting feedback.');
       },
     });
@@ -163,8 +198,7 @@ $(document).ready(function () {
           alertify.error(response.message);
         }
       },
-      error: function (xhr) {
-        console.error(xhr.responseText);
+      error: function () {
         alertify.error('Failed to schedule appointment. Please try again.');
       },
     });

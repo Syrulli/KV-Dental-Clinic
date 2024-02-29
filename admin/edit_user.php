@@ -57,10 +57,10 @@
                             </div>
                         <?php
                     }else{
-                        redirect("menu.php", "Item Not Found");
+                        redirect("index.php", "Item Not Found");
                     }
                 }else{
-                    redirect("menu.php", "ID Missing from URL");
+                    redirect("index.php", "ID Missing from URL");
                 }
             ?>
         </div>

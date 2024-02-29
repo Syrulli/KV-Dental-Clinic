@@ -171,12 +171,36 @@
             $update_query_run = mysqli_query($con, $update_query);
             if ($update_query_run){
                 redirect("../index.php?id=$tbl_user_id", "Account Updated Successfully!");
-                
             }else{
                 redirect("../index.php?id=$tbl_user_id", "Something Went Wrong!");
             }
         }
     // UPDATE ACCOUNT BY USER FUNCTIONS
+
+    // DELETE BLOG FUNCTIONS
+    // DELETE BLOG FUNCTIONS
+        if(isset($_POST['delete_appointment_btn'])){
+            $appointment_history_table = mysqli_real_escape_string($con, $_POST['appointment_history_table']);
+
+            $tbl_appointment_query = "SELECT * FROM tbl_appointments WHERE id='$appointment_history_table' ";
+            $tbl_appointment_query_run = mysqli_query($con, $tbl_appointment_query);
+
+            if(mysqli_num_rows($tbl_appointment_query_run) > 0) {
+                $delete_query = "DELETE FROM tbl_appointments WHERE id='$appointment_history_table' ";
+                $delete_query_run = mysqli_query($con, $delete_query);
+
+                if($delete_query_run){
+                    echo 200;
+                } else {
+                    echo 500;
+                }
+            }
+        }
+    // DELETE BLOG FUNCTIONS
+
+    // DELETE BLOG FUNCTIONS
+
+
 
     else{
         header('Location: ../index.php');
