@@ -1,3 +1,12 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Mar 09, 2024 at 06:27 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
+
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
@@ -22,6 +31,7 @@ CREATE TABLE `tbl_appointments` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `appointment_date` datetime NOT NULL,
+  `dentist` varchar(191) NOT NULL,
   `service` varchar(255) NOT NULL,
   `price` decimal(10,2) NOT NULL,
   `status` enum('scheduled','cancelled') NOT NULL,
@@ -42,15 +52,6 @@ CREATE TABLE `tbl_blog` (
   `links` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `tbl_blog`
---
-
-INSERT INTO `tbl_blog` (`id`, `title`, `image`, `description`, `links`) VALUES
-(16, 'Overcoming you fear of the dentist', '1708748823.jpg', 'Mild fear over seeing the dentist is best remedied by going to the dentist instead of avoiding it.', 'https://www.facebook.com/photo?fbid=231428019655163&set=a.122778520520114'),
-(18, '8 unit Emax Veneers', '1708748923.jpg', 'A durable near match for natural teeth.', 'https://www.facebook.com/photo/?fbid=197234023074563&set=a.122778520520114'),
-(19, 'Wisdom tooth management', '1708748984.jpg', 'Signs that you should extract your 3rd molar/wisdom tooth. ', 'https://www.facebook.com/profile.php?id=100083638991034');
-
 -- --------------------------------------------------------
 
 --
@@ -64,19 +65,6 @@ CREATE TABLE `tbl_feedback` (
   `message` varchar(191) NOT NULL,
   `msg_submitted` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `tbl_feedback`
---
-
-INSERT INTO `tbl_feedback` (`id`, `name`, `email`, `message`, `msg_submitted`) VALUES
-(49, 'klak JD', 'lloydlanguido@2gmail.com', 'wqewq', '2024-02-17 02:36:11'),
-(50, 'klak JD', 'test@gmail.com', '21', '2024-02-17 02:43:42'),
-(51, 'klak JD', 'lloyd@gmail.com', '12', '2024-02-17 02:44:29'),
-(52, 'Sevilla', 'user@gmail.com', 'test message', '2024-02-17 08:37:21'),
-(53, 'Sevilla', 'user@gmail.com', 'test message', '2024-02-17 08:40:04'),
-(54, 'Sevilla', 'user@gmail.com', 'test message', '2024-02-17 08:42:09'),
-(55, 'Sevilla', 'user@gmail.com', 'test message', '2024-02-17 08:44:20');
 
 -- --------------------------------------------------------
 
@@ -100,8 +88,7 @@ CREATE TABLE `tbl_users` (
 --
 
 INSERT INTO `tbl_users` (`id`, `name`, `email`, `dob`, `phone`, `password`, `role_as`, `created_at`) VALUES
-(1, 'Admin KV', 'admin@gmail.com', '0000-00-00', 921321321, '123', 1, '2024-01-21 10:03:21'),
-(22, 'Syrulli Lloyd', 'user@gmail.com', '0000-00-00', 921321321, '123', 0, '2024-02-24 06:52:54');
+(1, 'Admin KV', 'admin@gmail.com', '1970-01-01', 2147483621, '123', 1, '2024-01-21 10:03:21');
 
 --
 -- Indexes for dumped tables
@@ -140,25 +127,25 @@ ALTER TABLE `tbl_users`
 -- AUTO_INCREMENT for table `tbl_appointments`
 --
 ALTER TABLE `tbl_appointments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=76;
 
 --
 -- AUTO_INCREMENT for table `tbl_blog`
 --
 ALTER TABLE `tbl_blog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `tbl_feedback`
 --
 ALTER TABLE `tbl_feedback`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 
 --
 -- AUTO_INCREMENT for table `tbl_users`
 --
 ALTER TABLE `tbl_users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- Constraints for dumped tables

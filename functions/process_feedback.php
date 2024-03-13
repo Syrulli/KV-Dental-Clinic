@@ -24,7 +24,6 @@
             echo "Feedback submitted successfully!";
         } else {
             http_response_code(500); // Internal Server Error
-            // echo "Error submitting Feedback: " . $con->error;
         }
         $feedback->close();
     }

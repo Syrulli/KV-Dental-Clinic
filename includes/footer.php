@@ -9,6 +9,8 @@
                             <p class="mb-0"><span style="font-weight: bold; font-size: 15pt;">Let's Connect</span></p>
                             <a class="social-icons" href="https://www.facebook.com/profile.php?id=100083638991034"><i class="fa-brands fa-facebook"></i></a>
                             <a class="social-icons" href="#"> <i class="fa-brands fa-instagram"></i></a>
+                            <a class="social-icons" href="#"><i class="fa-brands fa-viber"></i></a>
+                            <a class="social-icons" href="#"><i class="fa-brands fa-linkedin"></i></a>
                         </div>
                     </div>
                 </div>

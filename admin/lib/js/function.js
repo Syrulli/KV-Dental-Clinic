@@ -31,10 +31,8 @@ $(document).on('click', '.delete_user_btn', function (e) {
 });
 
 /*==================== ALERT FOR DELETE NEWS & BLOG ====================*/
-$(document).on('click', '.delete_blog_btn', function (e) {
-  e.preventDefault();
-  var id = $(this).val();
-  // alert(id);
+$(document).on('click', '.delete_blog_btn', function () {
+  var blogId = $(this).val();
   swal({
     title: 'Are you sure?',
     text: 'Once deleted, you will not be able to recover',
@@ -44,18 +42,20 @@ $(document).on('click', '.delete_blog_btn', function (e) {
   }).then((willDelete) => {
     if (willDelete) {
       $.ajax({
-        method: 'POST',
+        type: 'POST',
         url: 'code.php',
         data: {
-          blog_table: id,
           delete_blog_btn: true,
+          all_blog_table: blogId,
         },
         success: function (response) {
           if (response == 200) {
-            swal('Success!', 'News & Blog Deleted Successfully!', 'success');
-            $('#blog_table').load(location.href + ' #blog_table');
-          } else if (response == 500) {
-            swal('Error!', 'Something went Wrong', 'error');
+            swal('Success!', 'Appointment Deleted Successfully!', 'success');
+            $('#all_blog_table').load(location.href + ' #all_blog_table');
+          } else if (response == 404) {
+            swal('Error!', 'News & Blog not found', 'error');
+          } else {
+            swal('Error!', 'Something went wrong', 'error');
           }
         },
       });
@@ -128,6 +128,20 @@ function isValidEmail(email) {
   var pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return pattern.test(email);
 }
+
+/*==================== FUNC FOR NOTIF USERS ====================*/
+$(document).ready(function () {
+  function fetchAppointmentNotifications() {
+    $.ajax({
+      url: 'functions/fetch_app_notif.php',
+      method: 'GET',
+      success: function (response) {
+        $('#notificationBadge').text(response);
+      },
+    });
+  }
+  fetchAppointmentNotifications();
+});
 
 /*==================== FUNC FOR APPOINTMENT PROCESS ====================*/
 $(document).ready(function () {

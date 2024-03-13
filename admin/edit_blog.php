@@ -30,16 +30,15 @@
                                                 <div class="mb-3">
                                                     <input type="hidden" name="tbl_blog_id" value="<?= $data['id'] ?>">
                                                     <label class="form-label"><b><small>News ID</small></b></label>
-                                                    <input disabled type="text" name="id" value="<?= $data['id'] ?>" class="form-control" placeholder="Enter Item Name" disable>
+                                                    <input disabled type="text" name="id" value="<?= $data['id'] ?>" class="form-control" placeholder="Enter ID Name">
 
                                                     <label class="form-label mt-2"><b><small>Title</small></b></label>
-                                                    <input required type="text" name="title" value="<?= $data['title'] ?>" class="form-control" placeholder="Enter News & Blog Title">
+                                                    <input type="text" name="title" value="<?= $data['title'] ?>" class="form-control" placeholder="Enter News & Blog Title" required>
 
                                                     <label class="form-label mt-2"><b><small>Links</small></b></label>
                                                     <input required type="text" name="links" value="<?= $data['links'] ?>" class="form-control" placeholder="Enter News & Blog links">
                                                 </div>
                                             </div>
-
                                             <div class="col-lg-6">
                                                 <div class="mb-3">
                                                     <label class="form-label"><b><small>Description</small></b></label>
@@ -54,7 +53,6 @@
                                                 <input type="hidden" name="old_image" value="<?= $data['image'] ?>">
                                             </div>
                                         </div>
-
                                         <div class="col-lg-12 d-flex justify-content-end">
                                             <button type="submit" class="btn btn-outline-primary" name="update_blog_btn" title="Update News & Blog"><i class="fa-solid fa-check"></i></button>
                                         </div>
@@ -72,6 +70,4 @@
         </div>
     </div>
 </div>
-<?php
-include('inc/footer.php');
-?>
+<?php include('inc/footer.php'); ?>

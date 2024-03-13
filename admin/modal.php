@@ -1,3 +1,4 @@
+<!-- ADD NEWS & BLOGS MODAL -->
 <div class="modal fade" id="add_blog_btn" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -11,7 +12,7 @@
                         <div class="col-lg-6">
                             <div class="mb-3">
                                 <label class="form-label">Title</label>
-                                <input type="text" name="title" class="form-control" placeholder="Enter Item Name">
+                                <input type="text" name="title" class="form-control" placeholder="Enter Title">
                             </div>
                         </div>
                         <div class="col-lg-6">
@@ -42,22 +43,104 @@
         </div>
     </div>
 </div>
+<!-- ADD NEWS & BLOGS MODAL -->
 
-
-
-
-<div class="modal fade" id="edot_blog_btn" tabindex="-1" aria-labelledby="editBlogModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+<!-- VIEW FEEDBACKS MODAL -->
+<div class="modal fade" id="viewFeedback" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" style="overflow: hidden !important;">
+    <div class="modal-dialog">
         <div class="modal-content">
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <h5 class="modal-title" id="editBlogModalLabel">Edit News & Blog Form</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-header text-white d-flex justify-content-center" style="background-color: var(--first-color);">
+                <h1 class="modal-title fs-5 " id="exampleModalLabel">Patient Feedback</h1>
             </div>
-            <!-- Modal Body -->
-            <div class="modal-body" id="editBlogModalBody">
-                <!-- Content will be loaded dynamically here -->
+            <div class="modal-body">
+                <?php
+                $feedback = getAllFeedback("tbl_feedback");
+                if (mysqli_num_rows($feedback) > 0) {
+                    $feedback = mysqli_fetch_array($feedback);
+                ?>
+                    <form action="#" enctype="multipart/form-data">
+                        <div class="row">
+
+                            <div class="col-lg-12">
+
+                                <div class="mb-3">
+                                    <label class="form-label"><small><i class="fa-regular fa-id-card"></i> ID</label></small>
+                                    <input required type="text" name="id" class="form-control" value="<?= $feedback['id'] ?> " placeholder="Name" readonly disabled>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label"><small><i class="fa-solid fa-tag"></i> Name</label></small>
+                                    <input required type="text" name="name" class="form-control" value="<?= $feedback['name'] ?> " placeholder="Name" readonly disabled>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label"><small><i class="fa-solid fa-at"></i> Email</label></small>
+                                    <input required type="email" name="email" class="form-control" value="<?= $feedback['email'] ?> " placeholder="Email" readonly disabled>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label"><small><i class="fa-regular fa-message"></i> Patient Feedback</label></small>
+                                    <textarea rows="7" type="text" name="message" class="form-control" readonly disabled><?= $feedback['message'] ?></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                <?php
+                } else {
+                    echo "Patient Feedback Not Found for given ID";
+                }
+                ?>
             </div>
         </div>
     </div>
 </div>
+<!-- VIEW FEEDBACKS MODAL -->
+
+<!-- VIEW APPOINTMENT ADMIN SIDE MODAL -->
+
+<div class="modal fade" id="viewApppointmentUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header text-white d-flex justify-content-center" style="background-color: var(--first-color);">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Patient Appointment Details</h1>
+            </div>
+            <div class="modal-body">
+                <?php
+                if (isset($_GET['userId'])) {
+                    $userId = $_GET['userId'];
+                    // Call the function to retrieve appointment details
+                    $appointment = getAppointmentUserDetails($userId);
+                    if (mysqli_num_rows($appointment) > 0) {
+                        $appointment = mysqli_fetch_array($appointment);
+                ?>
+                        <form action="#" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="mb-3">
+                                        <label class="form-label"><small><i class="fa-solid fa-tag"></i> Name</small></label>
+                                        <input required type="name" name="name" class="form-control" value="<?= $appointment['name'] ?>" placeholder="Name" readonly disabled>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="mb-3">
+                                        <label class="form-label"><small><i class="fa-solid fa-tag"></i> Email</small></label>
+                                        <input required type="email" name="email" class="form-control" value="<?= $appointment['email'] ?>" placeholder="Email" readonly disabled>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="mb-3">
+                                        <label class="form-label"><small><i class="fa-solid fa-tag"></i> Phone No.</small></label>
+                                        <input required type="tel" name="tel" class="form-control" value="<?= $appointment['phone'] ?>" placeholder="Phone No." readonly disabled>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                <?php
+                    } else {
+                        echo "Patient Not Found for the given ID";
+                    }
+                }
+                ?>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- VIEW APPOINTMENT ADMIN SIDE MODAL -->

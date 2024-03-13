@@ -9,6 +9,7 @@
         $name = mysqli_real_escape_string($con, $_POST['name']);
         $email = mysqli_real_escape_string($con, $_POST['email']);
         $dob = mysqli_real_escape_string($con, $_POST['dob']);
+        $formatted_birthday = date('Y-m-d', strtotime($dob));
         $phone = mysqli_real_escape_string($con, $_POST['phone']);
         $password = mysqli_real_escape_string($con, $_POST['password']);
         $cpassword = mysqli_real_escape_string($con, $_POST['cpassword']);
@@ -22,7 +23,7 @@
         }else{
             // condition if match ba yung passwords sa cpass
             if($password == $cpassword){
-                $insert_query = "INSERT INTO tbl_users (name, email, dob, phone, password) VALUES ('$name','$email','$dob','$phone','$password')";
+                $insert_query = "INSERT INTO tbl_users (name, email, dob, phone, password) VALUES ('$name','$email','$formatted_birthday','$phone','$password')";
                 $insert_query_run = mysqli_query($con, $insert_query);
 
                 if( $insert_query_run){

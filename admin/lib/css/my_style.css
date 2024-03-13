@@ -75,6 +75,12 @@
   .nav-link {
     color: var(--body-color) !important;
   }
+  /* .button, .dropdown-menu {
+    margin:40px auto
+  } */
+  .dropdown-menu {
+    width:205px; left:50%; margin-left:-70px;
+  }
 /* <--------END OF NAV DESIGN--------> */
 
 /* <--------START OF FOOTER DESIGN--------> */
@@ -120,7 +126,24 @@
   box-shadow: 0px 1px 5px rgba(0, 0, 0, .7);
   border-radius: 10px;
 }
+.appointment_history_table{
+  margin-top: -100px !important;
+  margin-bottom: 60px;
+}
 /* <--------INDEX SECTION DESIGN--------> */
+
+/* <--------ALL ANIMATIONS--------> */
+  .animated-count {
+    font-size: 24px;
+    font-weight: bold;
+    animation: count-up 1.5s ease-out;
+  }
+
+  @keyframes count-up {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+/* <--------ALL ANIMATIONS--------> */
 
 /* <--------RESPONSIVE VIEW --------> */
   @media(max-width: 820px) {
@@ -135,6 +158,10 @@
     }
     .home-container1-content{
       margin-top: 15rem !important;
+    }
+    .appointment_history_table{
+      margin-top: -100px !important;
+      margin-bottom: 60px;
     }
   }
   @media screen and (max-width: 375px) {

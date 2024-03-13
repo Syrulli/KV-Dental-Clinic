@@ -1,8 +1,8 @@
 <?php
-// session_start();
-$title = "About | About KV Dental Clinic";
-include('functions/userfunction.php');
-include('./includes/header.php');
+    $title = "About | KV Dental Clinic";
+    include('functions/userfunction.php');
+    include('./includes/header.php');
+    include('all_modal.php');    
 ?>
 
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="var(--first-color)" fill-opacity="1" d="M0,96L30,101.3C60,107,120,117,180,133.3C240,149,300,171,360,170.7C420,171,480,149,540,149.3C600,149,660,171,720,186.7C780,203,840,213,900,197.3C960,181,1020,139,1080,144C1140,149,1200,203,1260,240C1320,277,1380,299,1410,309.3L1440,320L1440,0L1410,0C1380,0,1320,0,1260,0C1200,0,1140,0,1080,0C1020,0,960,0,900,0C840,0,780,0,720,0C660,0,600,0,540,0C480,0,420,0,360,0C300,0,240,0,180,0C120,0,60,0,30,0L0,0Z"></path></svg>
@@ -25,13 +25,8 @@ include('./includes/header.php');
                 <img src="img/dummy_img_2.png" style="width: 520px;">
             </div>
             <div class="col-lg-6 col-sm-12">
-                <h2 style="color: var(--first-color);">Our history</h2>
+                <h2 style="color: var(--first-color);">Meet Dr. KV</h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, iusto magni? Voluptatem iusto necessitatibus vel reprehenderit minus velit cupiditate molestias possimus dolorum! Praesentium quam eligendi dolorem vitae itaque quibusdam odio..iusto magni? Voluptatem iusto necessitatibus vel reprehenderit minus velit cupiditate molestias possimus dolorum! Praesentium quam eligendi dolorem vitae itaque quibusdam odio <br> Praesentium quam eligendi dolorem vitae itaque quibusdam odio.</p>
-                <i class="fa-brands fa-facebook"></i> 
-                <i class="fa-brands fa-linkedin"></i> 
-                <i class="fa-brands fa-square-instagram"></i> 
-                <button type="button" class="btn btn-outline-secondary btn-sm">View More</button>
-
             </div>
         </div>
     </div>
