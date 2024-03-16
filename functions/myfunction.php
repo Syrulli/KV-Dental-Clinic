@@ -26,6 +26,32 @@
             $q = "SELECT * FROM $tbl_blog WHERE id='$id' ";
            return $q = mysqli_query($con, $q);
         }
+
+        function getAllFeedback($tbl_feedback){
+            global $con;
+            $q = "SELECT * FROM $tbl_feedback";
+           return $q = mysqli_query($con, $q);
+        }
+
+        function getAllAppointments() {
+            global $con;
+            $query = "SELECT A.id, U.name, U.phone, U.email, A.appointment_date, A.dentist, A.service, A.status
+                    FROM tbl_appointments AS A
+                    JOIN tbl_users AS U ON A.user_id = U.id";
+            $result = mysqli_query($con, $query);
+            return $result;
+        }
+
+        function getAppointmentUserDetails($userId) {
+            global $con;
+            $userId = mysqli_real_escape_string($con, $userId);
+            $query = "SELECT A.id, U.id, U.name, U.phone, U.email
+                      FROM tbl_appointments AS A
+                      JOIN tbl_users AS U ON A.user_id = U.id
+                      WHERE A.user_id = '$userId'";
+            $result = mysqli_query($con, $query);
+            return $result;
+        }
     // END ADMIN SIDE FUNC 
 
     // MESSAGE NOTI FUNC 

@@ -1,9 +1,9 @@
 <?php
-$title = "Book an appointment";
-include('./includes/header.php');
-include('functions/userfunction.php');
-include('all_modal.php');
-include('authenticate.php');
+    $title = "Book an appointment";
+    include('functions/userfunction.php');
+    include('./includes/header.php');
+    include('authenticate.php');
+    include('all_modal.php');
 ?>
 <section style="background-image: url('img/dummy_img_1.png')
      !important; background-repeat: no-repeat; background-position: left !important; background-size: cover; background-attachment: fixed; ">
@@ -36,7 +36,7 @@ include('authenticate.php');
                         <div class="card-body">
                             <div class="mb-3">
                                 <label for="appointment_date" class="form-label"><small><i class="fa-regular fa-clock"></i> Date & Time</label></small>
-                                <input type="datetime-local" id="appointment_date" name="appointment_date" required class="form-control">
+                                <input type="datetime-local" id="appointment_date" name="appointment_date" class="form-control" min="2024-03-11T10:00" required>
                             </div>
                             <select class="form-select mb-3" id="dentist" name="dentist" aria-label="Default select example">
                                 <option selected>Choose Dentist</option>
@@ -74,65 +74,6 @@ include('authenticate.php');
         </div>
     </div>
 </section>
-
-<section>
-    <div class="container pt-lg-3" style="height: 65px !important;">
-        <p>Appointment History</p>
-        <hr>
-    </div>
-    <div class="container mt-lg-3 mb-5 my-5" id="appointment_history_table">
-        <div class="row">
-            <div class="col-lg-12">
-                <table class="table table-striped text-center shadow p-3 mb-5 bg-body-tertiary rounded">
-                    <thead>
-                        <tr>
-                            <th>Appointment Date</th>
-                            <th>Dentist</th>
-                            <th>Service</th>
-                            <th>Price</th>
-                            <th>Status</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        $appointment = getAppointmentById();
-                        if (mysqli_fetch_array($appointment) > 0) {
-                            foreach ($appointment as $data) {
-                        ?>
-                                <tr>
-                                    <td> <?= $data['appointment_date']; ?> </td>
-                                    <td> <?= $data['dentist']; ?> </td>
-                                    <td> <?= $data['service']; ?> </td>
-                                    <td> <?= $data['price']; ?> </td>
-                                    <td> <?= $data['status']; ?> </td>
-                                    <td>
-                                        <div class="row">
-                                            <div class="col-3" title="Edit Appointment">
-                                                <button type="button" class="btn btn-primary btn-sm edit-appointment-btn" data-bs-toggle="modal" data-bs-target="#edit_appointment_by_user_btn" data-appointment-id="<?= $data['id']; ?>"><i class="fa-solid fa-pen-to-square"></i></button>
-                                            </div>
-                                            <div class="col-3" title="Delete User">
-                                                <button type="button" value="<?= $data['id']; ?>" class="btn btn-outline-danger delete_appointment_btn btn-sm"><i class="fa-solid fa-trash"></i></button>
-                                            </div>
-                                        </div>
-                                    </td>
-                                <?php
-                            }
-                        } else {
-                                ?>
-                                    <td colspan="10">No data</td>
-                                    
-                                </tr>
-                            <?php
-                        }
-                            ?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</section>
-
 
 <script>
     var i = 0,

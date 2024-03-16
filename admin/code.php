@@ -132,23 +132,20 @@
 
     // DELETE BLOG FUNCTIONS
         else if(isset($_POST['delete_blog_btn'])){
-            $blog_table = mysqli_real_escape_string($con, $_POST['blog_table']);
+            $all_blog_table = mysqli_real_escape_string($con, $_POST['all_blog_table']);
 
-            $tbl_blog_query = "SELECT * FROM tbl_blog WHERE id='$blog_table' ";
+            $tbl_blog_query = "SELECT * FROM tbl_blog WHERE id='$all_blog_table' ";
             $tbl_blog_query_run = mysqli_query($con, $tbl_blog_query);
-            $tbl_blog_data = mysqli_fetch_array($tbl_blog_query_run);
-            $image = $tbl_blog_data ['image'];
 
-            $delete_query = "DELETE FROM tbl_blog WHERE id='$blog_table' ";
-            $delete_query_run = mysqli_query($con, $delete_query);
+            if(mysqli_num_rows($tbl_blog_query_run) > 0) {
+                $delete_query = "DELETE FROM tbl_blog WHERE id='$all_blog_table' ";
+                $delete_query_run = mysqli_query($con, $delete_query);
 
-            if($delete_query_run){
-                if(file_exists("../uploaded/".$image)){
-                    unlink("../uploaded/".$image);
+                if($delete_query_run){
+                    echo 200;
+                } else {
+                    echo 500;
                 }
-                echo 200;
-            }else{
-                echo 500;
             }
         }
     // DELETE BLOG FUNCTIONS
@@ -177,9 +174,8 @@
         }
     // UPDATE ACCOUNT BY USER FUNCTIONS
 
-    // DELETE BLOG FUNCTIONS
-    // DELETE BLOG FUNCTIONS
-        if(isset($_POST['delete_appointment_btn'])){
+    // DELETE APPOINTMENT FUNCTIONS
+        else if(isset($_POST['delete_appointment_btn'])){
             $appointment_history_table = mysqli_real_escape_string($con, $_POST['appointment_history_table']);
 
             $tbl_appointment_query = "SELECT * FROM tbl_appointments WHERE id='$appointment_history_table' ";
@@ -196,12 +192,7 @@
                 }
             }
         }
-    // DELETE BLOG FUNCTIONS
-
-    // DELETE BLOG FUNCTIONS
-
-
-
+    // DELETE APPOINTMENT FUNCTIONS
     else{
         header('Location: ../index.php');
     }
