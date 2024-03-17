@@ -70,7 +70,7 @@
     </div>
 </section>
 
-<section>
+<!-- <section>
     <div class="container-fluid px-4 mt-5">
         <div class="row float-end mb-3">
             <form class="d-flex" role="search">
@@ -115,7 +115,7 @@
             </tbody>
         </table>
     </div>
-</section>
+</section> -->
 <?php include('inc/footer.php'); ?>
 
 <script>

@@ -18,7 +18,6 @@
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-blog"></i></div>
                     <small>News & Blogs</small> 
                 </a>
-
                 <a class="nav-link <?= $page == "all_feedbacks.php"? 'active bg-primary':''; ?>" href="all_feedbacks.php">
                     <div class="sb-nav-link-icon"><i class="fa-regular fa-comments"></i></div>
                     <small>Patients Feedback</small>

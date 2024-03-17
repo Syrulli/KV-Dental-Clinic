@@ -129,91 +129,116 @@ function isValidEmail(email) {
   return pattern.test(email);
 }
 
-/*==================== FUNC FOR NOTIF USERS ====================*/
-$(document).ready(function () {
-  function fetchAppointmentNotifications() {
-    $.ajax({
-      url: 'functions/fetch_app_notif.php',
-      method: 'GET',
-      success: function (response) {
-        $('#notificationBadge').text(response);
-      },
-    });
-  }
-  fetchAppointmentNotifications();
-});
-
 /*==================== FUNC FOR APPOINTMENT PROCESS ====================*/
 $(document).ready(function () {
-  function isAppointmentValid(appointmentDate) {
-    const appointmentDay = appointmentDate.getDay(); // 0: Sunday, 1: Monday, ..., 6: Saturday
-    const appointmentHour = appointmentDate.getHours();
-    const appointmentMinute = appointmentDate.getMinutes();
-
-    const clinicHours = {
-      0: { start: 9, end: 13 }, // Sunday
-      1: { start: 10, end: 18 }, // Monday
-      2: { start: 10, end: 18 }, // Tuesday
-      3: { start: null, end: null }, // Wednesday (CLOSED)
-      4: { start: 10, end: 18 }, // Thursday
-      5: { start: 10, end: 18 }, // Friday
-      6: { start: 9, end: 18 }, // Saturday
-    };
-
-    if (
-      clinicHours[appointmentDay].start === null ||
-      clinicHours[appointmentDay].end === null
-    ) {
-      return false;
-    }
-
-    const openHour = clinicHours[appointmentDay].start;
-    const closeHour = clinicHours[appointmentDay].end;
-
-    if (
-      (appointmentHour > openHour ||
-        (appointmentHour === openHour && appointmentMinute >= 0)) &&
-      (appointmentHour < closeHour ||
-        (appointmentHour === closeHour && appointmentMinute === 0))
-    ) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  $('#service, #service_modal').change(function () {
+  $('#service').change(function () {
     var service = $(this).val();
-    $('#price, #price_modal').val(getPriceForService(service));
+    $('#price').val(getPriceForService(service));
+    $(this).removeClass('is-invalid');
   });
 
-  $('#appointmentForm').submit(function (event) {
-    event.preventDefault();
-    var appointmentDate = new Date($('#appointment_date').val());
+  $('#dentist').change(function () {
+    if ($(this).val() !== 'Choose Dentist') {
+      $(this).removeClass('is-invalid');
+    }
+  });
 
-    if (!isAppointmentValid(appointmentDate)) {
-      alertify.error(
-        'Please select a valid appointment date and time within the clinic hours.'
-      );
-      return;
+  function showNextForm(currentFormId, nextFormId) {
+    $(currentFormId).hide();
+    $(nextFormId).show();
+  }
+
+  function showPreviousForm(currentFormId, previousFormId) {
+    $(currentFormId).hide();
+    $(previousFormId).show();
+  }
+
+  function validateForm(formId) {
+    var isValid = true;
+    var isEmailValid = true;
+    var hasEmptyField = false;
+    $(
+      formId +
+        ' input[required]:visible, ' +
+        formId +
+        ' select[required]:visible'
+    ).each(function () {
+      if ($(this).val() === '') {
+        isValid = false;
+        hasEmptyField = true;
+        $(this).addClass('is-invalid');
+        return false; // Exit the loop
+      }
+      if ($(this).attr('type') === 'email') {
+        var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test($(this).val())) {
+          isEmailValid = false;
+          $(this).addClass('is-invalid');
+        }
+      }
+    });
+
+    if (!isValid && hasEmptyField) {
+      alertify.error('All fields are required.');
+    } else if (!isEmailValid) {
+      alertify.error('Please use a valid email.');
     }
 
-    var formData = $(this).serialize();
+    // Check dentist and service
+    if (formId === '#appointmentForm') {
+      if ($('#dentist').val() === 'Choose Dentist') {
+        alertify.error('Please select a dentist.');
+        $('#dentist').addClass('is-invalid');
+        isValid = false;
+      }
+      if ($('#service').val() === 'Dental services offered:') {
+        alertify.error('Please select a service.');
+        $('#service').addClass('is-invalid');
+        isValid = false;
+      }
+    }
+
+    return isValid && isEmailValid && !hasEmptyField;
+  }
+
+  $('#nextButton').click(function () {
+    if (!validateForm('#appointmentForm')) {
+      return;
+    }
+    showNextForm('#appointmentForm', '#personalInfoForm');
+  });
+
+  $('#nextButton2').click(function () {
+    if (!validateForm('#personalInfoForm')) {
+      return;
+    }
+    showNextForm('#personalInfoForm', '#contactInfoForm');
+  });
+
+  $('#prevButton').click(function () {
+    showPreviousForm('#personalInfoForm', '#appointmentForm');
+  });
+
+  $('#prevButton2').click(function () {
+    showPreviousForm('#contactInfoForm', '#personalInfoForm');
+  });
+
+  $('#submitButton').click(function () {
+    if (!validateForm('#contactInfoForm')) {
+      return;
+    }
+    var formData = $('#appointmentForm').serialize();
     $.ajax({
       type: 'POST',
       url: 'functions/process_sched.php',
       data: formData,
       dataType: 'json',
       success: function (response) {
-        if (response.success) {
-          alertify.success(response.message);
-          $('#appointmentForm')[0].reset();
-        } else {
-          alertify.error(response.message);
-        }
+        alertify.success(response.message);
+        $('#appointmentForm')[0].reset();
       },
-      error: function () {
-        alertify.error('Failed to schedule appointment. Please try again.');
+      error: function (error) {
+        alertify.error('Error occurred while scheduling appointment.');
       },
     });
   });
@@ -221,33 +246,33 @@ $(document).ready(function () {
 function getPriceForService(service) {
   switch (service) {
     case 'Cleaning & polishing':
-      return '4000.00';
+      return '4000.00 to 5000.00';
     case 'Deep scaling':
-      return '5000.00';
+      return '5000.00 to 6000.00';
     case 'Tooth filling':
-      return '5100.00';
+      return '5100.00 to 5000.00';
     case 'Fluoride treatment':
-      return '8060.00';
+      return '8060.00 to 5000.00';
     case 'Pit & fissure sealant':
-      return '4925.00';
+      return '4925.00 to 5000.00';
     case 'Orthodontic braces':
-      return '6000.00';
+      return '6000.00 to 5000.00';
     case 'Oral Surgery':
-      return '50000.00';
+      return '50000.00 to 5000.00';
     case 'Cosmetic Dentistry':
-      return '4805.00';
+      return '4805.00 to 5000.00';
     case 'Endodontics':
-      return '8620.00';
+      return '8620.00  to 5000.00';
     case 'Pediatric Dentistry':
-      return '5660.00';
+      return '5660.00 to 5000.00';
     case 'Dentures':
-      return '6081.00';
+      return '6081.00 to 5000.00';
     case 'Crowns & bridges':
-      return '6990.00';
+      return '6990.00 to 5000.00';
     case 'Veneers/Laminates':
       return '80.00';
     case 'Dental Implants':
-      return '5200.00';
+      return '5200.00 to 5000.00';
     default:
       return '';
   }
