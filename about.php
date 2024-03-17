@@ -1,5 +1,5 @@
 <?php
-    $title = "About | KV Dental Clinic";
+    $title = "About | About KV Dental Clinic";
     include('functions/userfunction.php');
     include('./includes/header.php');
     include('all_modal.php');    
@@ -25,8 +25,13 @@
                 <img src="img/dummy_img_2.png" style="width: 520px;">
             </div>
             <div class="col-lg-6 col-sm-12">
-                <h2 style="color: var(--first-color);">Meet Dr. KV</h2>
+                <h2 style="color: var(--first-color);">Our history</h2>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, iusto magni? Voluptatem iusto necessitatibus vel reprehenderit minus velit cupiditate molestias possimus dolorum! Praesentium quam eligendi dolorem vitae itaque quibusdam odio..iusto magni? Voluptatem iusto necessitatibus vel reprehenderit minus velit cupiditate molestias possimus dolorum! Praesentium quam eligendi dolorem vitae itaque quibusdam odio <br> Praesentium quam eligendi dolorem vitae itaque quibusdam odio.</p>
+                <i class="fa-brands fa-facebook"></i> 
+                <i class="fa-brands fa-linkedin"></i> 
+                <i class="fa-brands fa-square-instagram"></i> 
+                <button type="button" class="btn btn-outline-secondary btn-sm">View More</button>
+
             </div>
         </div>
     </div>
