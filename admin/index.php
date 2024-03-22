@@ -11,7 +11,7 @@
             <div class="col-xl-3 col-md-6">
                 <div class="card text-center shadow bg-body-tertiary rounded">
                     <div class="card-header bg-primary text-white">
-                        <small>Total Registered Accounts</small>
+                        <small>Expenses</small>
                     </div>
                     <div class="card-body">
                         <b class="h3">
@@ -70,7 +70,7 @@
     </div>
 </section>
 
-<!-- <section>
+<section>
     <div class="container-fluid px-4 mt-5">
         <div class="row float-end mb-3">
             <form class="d-flex" role="search">
@@ -81,26 +81,24 @@
             <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Date & Time</th>
-                    <th>Services</th>
-                    <th>Status</th>
-                    <th>Action</th>
+                    <th>Appointment Date</th>
+                    <th>Service</th>
+                    <th><small>Appointment Created at</small></th>
                 </tr>
             </thead>
             <tbody id="searchPatientName">
                 <?php
-                    $appointments = getAllAppointments();
+                    $appointments = getAllAppointments("tbl_appointments");
                     if (mysqli_num_rows($appointments) > 0) {
                         while ($data = mysqli_fetch_assoc($appointments)) {
                             ?>
                             <tr>
-                                <td><?= $data['name']; ?></td>
+                                <td><?= $data['fname']; ?></td>
                                 <td><?= $data['appointment_date']; ?></td>
                                 <td><?= $data['service']; ?></td>
-                                <td><?= $data['status']; ?></td>
-                                <td>
-                                    <a href="<?= $data['id']; ?>" type="button" data-bs-toggle="modal" data-bs-target="#viewApppointmentUser" title="View Appointment Details"><i class="fa-regular fa-eye"></i></a>
-                                </td>
+                                <td><?= $data['created_at']; ?></td>
+                                <!-- <td><?= $data['status']; ?></td> -->
+                            
                             </tr>
                             <?php
                         }
@@ -115,7 +113,7 @@
             </tbody>
         </table>
     </div>
-</section> -->
+</section>
 <?php include('inc/footer.php'); ?>
 
 <script>

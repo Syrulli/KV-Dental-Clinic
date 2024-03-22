@@ -33,14 +33,11 @@
            return $q = mysqli_query($con, $q);
         }
 
-        // function getAllAppointments() {
-        //     global $con;
-        //     $query = "SELECT A.id, U.name, U.phone, U.email, A.appointment_date, A.dentist, A.service, A.status
-        //             FROM tbl_appointments AS A
-        //             JOIN tbl_users AS U ON A.user_id = U.id";
-        //     $result = mysqli_query($con, $query);
-        //     return $result;
-        // }
+        function getAllAppointments($tbl_appointments){
+            global $con;
+            $q = "SELECT * FROM $tbl_appointments";
+           return $q = mysqli_query($con, $q);
+        }
     // END ADMIN SIDE FUNC 
 
     // MESSAGE NOTI FUNC 

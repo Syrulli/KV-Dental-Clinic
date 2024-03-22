@@ -10,10 +10,17 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     <small>Overview</small>
                 </a>
-                <a class="nav-link <?= $page == "all_users.php"? 'active bg-primary':''; ?>" href="all_users.php">
-                    <div class="sb-nav-link-icon"><i class="fa-solid fa-users"></i></div>
-                    <small>Accounts Maintenance</small> 
+             
+                <a class="nav-link <?= $page == "all_patients.php"? 'active bg-primary':''; ?>" href="all_patients.php">
+                    <div class="sb-nav-link-icon"><i class="fa-solid fa-blog"></i></div>
+                    <small>Patients Info</small> 
                 </a>
+
+                <a class="nav-link <?= $page == "all_appointment.php"? 'active bg-primary':''; ?>" href="all_appointments.php">
+                    <div class="sb-nav-link-icon"><i class="fa-solid fa-blog"></i></div>
+                    <small>Appointments Schedule</small> 
+                </a>
+
                 <a class="nav-link <?= $page == "all_blog.php"? 'active bg-primary':''; ?>" href="all_blog.php">
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-blog"></i></div>
                     <small>News & Blogs</small> 
@@ -21,6 +28,16 @@
                 <a class="nav-link <?= $page == "all_feedbacks.php"? 'active bg-primary':''; ?>" href="all_feedbacks.php">
                     <div class="sb-nav-link-icon"><i class="fa-regular fa-comments"></i></div>
                     <small>Patients Feedback</small>
+                </a>
+
+                <a class="nav-link <?= $page == "all_feedbacks.php"? 'active bg-primary':''; ?>" href="all_feedbacks.php">
+                    <div class="sb-nav-link-icon"><i class="fa-regular fa-comments"></i></div>
+                    <small>Daily sales reports</small>
+                </a>
+
+                <a class="nav-link <?= $page == "all_feedbacks.php"? 'active bg-primary':''; ?>" href="all_feedbacks.php">
+                    <div class="sb-nav-link-icon"><i class="fa-regular fa-comments"></i></div>
+                    <small>Expenses</small>
                 </a>
             </div>
         </div>

@@ -33,7 +33,7 @@
               </div>
               <div class="text-center">
                 <button type="submit" name="login_btn" class="btn btn-outline-primary btn-sm text-center">Sign in</button>
-                <a class="btn btn-outline-secondary btn-sm text-center" href="register.php">Create new account</a>
+                <!-- <a class="btn btn-outline-secondary btn-sm text-center" href="register.php">Create new account</a> -->
               </div>
             </form>
           </div>

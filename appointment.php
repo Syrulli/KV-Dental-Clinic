@@ -15,6 +15,7 @@ include('all_modal.php');
         </div>
     </div>
 </section>
+
 <section class="mb-5">
     <div class="container mt-lg-5 mt-sm-5">
         <div class="row mb-lg-5">
@@ -37,18 +38,16 @@ include('all_modal.php');
                             <div class="progress" aria-label="Animated striped example">
                                 <div id="progressBar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 33%;" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
-                            
                             <div class="mb-3">
                                 <label for="appointment_date" class="form-label"><small><i class="fa-regular fa-clock"></i> Date & Time</label></small>
                                 <input required type="datetime-local" id="appointment_date" name="appointment_date" class="form-control" min="2024-03-11T10:00" >
                             </div>
                             <select class="form-select mb-3" for="dentist" id="dentist" name="dentist" required aria-label="Default select example">
-                                <option selected >Choose Dentist</option>
+                                <!-- <option selected >Choose Dentist</option> -->
                                 <option value="Dr. Kv">Dr. Kv</option>
-                                <option value="Dr. lloyd">Dr. Lloyd</option>
                             </select>
                             <select class="form-select mb-3" id="hmo" name="hmo" aria-label="Default select example">
-                                <option selected >Health Maintenance Organization</option>
+                                <option selected >No HMO</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                             </select>
@@ -79,28 +78,28 @@ include('all_modal.php');
                         </div>
                     </form>
 
-                    <form id="personalInfoForm" style="display: none;">
+                    <form id="personalInfoForm" class="active" style="display: none;">
                         <div class="card-body">
                             <div class="progress" aria-label="Animated striped example">
                                 <div id="progressBar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 66%;" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                             <div class="mb-3">
-                                <label for="fname" class="form-label"><small><i class="fa-regular fa-clock"></i> First Name</label></small>
-                                <input required type="text" name="fname" class="form-control">
+                                <label class="form-label"><small><i class="fa-regular fa-clock"></i> First Name</label></small>
+                                <input required type="text" id="fname" name="fname" class="form-control">
                             </div>
 
                             <div class="mb-3">
-                                <label for="mname" class="form-label"><small><i class="fa-regular fa-clock"></i> Middle Name</label></small>
-                                <input type="text" name="mname" class="form-control">
+                                <label class="form-label"><small><i class="fa-regular fa-clock"></i> Middle Name</label></small>
+                                <input type="text" id="mname" name="mname" class="form-control">
                             </div>
 
                             <div class="mb-3">
-                                <label for="lname" class="form-label"><small><i class="fa-regular fa-clock"></i> Last Name</label></small>
-                                <input required type="text" name="lname" class="form-control">
+                                <label class="form-label"><small><i class="fa-regular fa-clock"></i> Last Name</label></small>
+                                <input required type="text" id="lname" name="lname" class="form-control">
                             </div>
 
                             <div class="mb-3">
-                                <label for="email" class="form-label"><small><i class="fa-regular fa-clock"></i> Email Address</label></small>
+                                <label class="form-label"><small><i class="fa-regular fa-clock"></i> Email Address</label></small>
                                 <input required type="email" name="email" id="email" class="form-control">
                             </div>
                         </div>
@@ -112,14 +111,21 @@ include('all_modal.php');
 
                     <form id="contactInfoForm" style="display: none;">
                         <div class="card-body">
-                            <div class="progress">
-                                <div id="progressBar" class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress" aria-label="Animated striped example">
+                                <div id="progressBar" class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 66%;" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
                             </div>
                             <div class="mb-3">
-                                <label for="phone" class="form-label"><small><i class="fa-regular fa-clock"></i> Phone No.</label></small>
-                                <input required type="tel" name="phone" id="phone" class="form-control">
+                                <label " class="form-label"><small><i class="fa-regular fa-clock"></i> Phone No.</label></small>
+                                <input required type="number" name="phone" id="phone" class="form-control">
                             </div>
-                            <!-- Add other fields for address, date of birth, age, gender -->
+                            <div class="mb-3">
+                                <label class="form-label"><small><i class="fa-regular fa-clock"></i> Birthdate</label></small>
+                                <input required type="date" id="dob" name="dob" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label"><small><i class="fa-regular fa-message"></i> Address</label></small>
+                                <textarea rows="5" type="text" id="address" name="address" class="form-control"></textarea>
+                            </div>
                         </div>
                         <div class="card-footer text-body-secondary text-center">
                             <button id="prevButton2" type="button" class="btn btn-outline-primary btn-sm">Back</button>
